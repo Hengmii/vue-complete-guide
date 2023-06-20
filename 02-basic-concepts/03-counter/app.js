@@ -3,30 +3,25 @@ const app = Vue.createApp({
 		return {
 			counter: 0,
 			name: '',
-			confirmedName: '',
-			statusMsg: `You loaded this page on ${new Date().toLocaleString()}`,
-		};
+			confirmedName: ''
+		}
 	},
 	methods: {
-		increment(num) {
-			this.counter += num;
-		},
-
-		decrement(num) {
-			if (this.counter < 1) return;
-			this.counter -= num;
-		},
-		setName(event, lastName) {
-			this.name = `${event.target.value} ${lastName}`;
-		},
-		confirmInput() {
+		confirmedInput() {
 			this.confirmedName = this.name;
-			console.log(this.confirmedName);
 		},
 		submitForm() {
-			alert('Submitted');
+			alert('Form submitted!');
 		},
-	},
-});
 
-app.mount('#events');
+		add(num) {
+			this.counter = this.counter + num;
+		},
+		reduce(num) {
+			this.counter = this.counter - num
+		},
+		setName(LastName) {
+			this.name = event.target.value + ' ' + LastName;
+		}
+	}
+}).mount('#events');

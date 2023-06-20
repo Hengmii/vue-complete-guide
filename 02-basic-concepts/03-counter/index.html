@@ -19,32 +19,15 @@
 		</header>
 
 		<section id="events">
-			<h2 v-bind:title="statusMsg">Events in Action</h2>
-
-			<button v-on:click="increment(1)">Add</button>
-			<button @click="increment(10)">Add 10</button>
-			<button
-				@click="decrement(1)"
-				@click.right="decrement(2)"
-				title="trying smthn out"
-			>
-				Subtract
-			</button>
-
-			<p v-once>Staring counter: {{ counter }}</p>
+			<h2>Events in Action</h2>
+			<button v-on:click="add(5)">Add 5</button>
+			<button @click.right="reduce(5)">Reduce 5</button>
 			<p>Result: {{ counter }}</p>
-
-			<label for="">Your name: </label>
-			<input
-				type="text"
-				@input="setName($event, 'Osrečki')"
-				@keyup.enter="confirmInput"
-			/>
-			<p>Hi {{ confirmedName }}</p>
-
-			<form :submit.prevent.="submitForm">
-				<input type="text" name="" id="" />
-				<button>Sign up</button>
+			<input type="text" v-on:input="setName($event, 'Jiang') " v-on:keyup.enter="confirmedInput">
+			<p> Your Name: {{ confirmedName }}</p>
+			<form v-on:submit.prevent="submitForm">
+				<input type="text">
+				<button>Sign Up</button>
 			</form>
 		</section>
 	</body>
