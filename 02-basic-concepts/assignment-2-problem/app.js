@@ -1,23 +1,20 @@
 const app = Vue.createApp({
 	data() {
 		return {
-			carBrand: 'every brand ever',
-			carModel: '',
-		};
+			choiceAlert: 'Button is clicked!',
+			output1: '',
+			output2: ''
+		}
 	},
 	methods: {
-		showAlert() {
-			alert(
-				'You clicked the button at ' + new Date().toLocaleTimeString()
-			);
+		clickButton() {
+			alert(this.choiceAlert);
 		},
-		enterCarBrand(event) {
-			this.carBrand = event.target.value;
+		inputText(event) {
+			this.output1 = event.target.value;
 		},
-		enterCarModel(event) {
-			this.carModel = event.target.value;
-		},
-	},
-});
-
-app.mount('#assignment');
+		inputText2(event) {
+			this.output2 = event.target.value;
+		}
+	}
+}).mount('#assignment');

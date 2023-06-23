@@ -16,14 +16,11 @@
   - 不应该用 interpolation，用`<div v-bind:[attribute]="[Vue data]"></div>`
 
 - JavaScript
-
   - event 传参，也可以用 `$event` 隐式传参？但是好像会出问题
     - ![image-20230621000719801](/Users/hengmii/Library/Application Support/typora-user-images/image-20230621000719801.png)
     - event.target.value
     - event.preventDefault()
-
 - Vue.js
-
   - Event Handling
     - v-on
     - Inline Handlers
@@ -34,5 +31,30 @@
     - ` @click.right`
     - `v-on:keyup.enter`
 
-  
 
+
+- Vue.js
+
+  - Computed Properties
+
+    > 为什么不建议使用 methods 输出动态变量的值？
+
+    - 每当页面上的任何内容发生变化时，html 中调用的方法都会被重新执行，因为 Vue 不知道用户行为是否会对这个方法的结果产生影响
+
+  - computed
+
+    - vue 会先检查 data properties 中是否有这个变量，如果没有，则去 computed properties 检查是否有这个计算方法；vue 会判断 computed properties 里面的 dependencies（变量）是否发生改变，如果有的话，才会重新执行 computed 方法。
+
+  - methods vs. computed
+
+  - Watchers
+
+    - 摸了
+
+    
+
+    
+
+    
+
+​		
