@@ -18,28 +18,29 @@
 		</header>
 		<section id="user-goals">
 			<h2>My course goals</h2>
-			<input type="text" v-model="currentGoal" @keydown.enter="addGoal" />
+			<input type="text" v-model="enteredGoalValue"/>
 			<button @click="addGoal">Add Goal</button>
 			<p v-if="goals.length === 0">
 				No goals have been added yet - please start adding some!
 			</p>
 			<ul v-else>
 				<!-- add key whenever using v-for, bcs after deleting,
-                    on re-render vue only changes the placeholders, and not 
-                    the whole element - input bug! 
+                    on re-render vue only changes the placeholders, and not
+                    the whole element - input bug!
                     it changes it by making it unique with unique key
                     it helps Vue makes elements apart, it doesnt reuse it
                 -->
-				<li
-					v-for="(goal, index) in goals"
-					:key="goal"
-					@click="removeGoal(index)"
-				>
-					<p>{{ index+1 }} - {{ goal }}</p>
-					<!-- .stop stops propagation (bubbling), doesnt trigger outer events -->
-					<input type="text" @click.stop />
-				</li>
+				<li v-for="(goal, index) in goals" key="goal" @click="removeGoal(index)">{{ goal }} - {{ index }}</li>
+
 			</ul>
+
+<!--			<ul>-->
+<!--				<li v-for="value in {name: 'Max', age:31}">{{ value }}</li>-->
+<!--			</ul>-->
+
+<!--			<ul>-->
+<!--				<li v-for="num in 10">{{ num }}</li>-->
+<!--			</ul>-->
 
 			<!-- <h2>Iterate over objects</h2>
 			<ul>
