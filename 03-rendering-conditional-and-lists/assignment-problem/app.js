@@ -1,39 +1,25 @@
 const app = Vue.createApp({
 	data() {
 		return {
+			usrInput: '',
 			tasks: [],
-			enteredTask: '',
-			listVisible: true,
-		};
+			listVisibility: true
+		}
+
+	},
+	computed: {
+		buttonCaption() {
+			return this.listVisibility ? 'Hide' : 'Show'
+		}
 	},
 	methods: {
 		addTask() {
-			if (!this.enteredTask) return;
-			task = {
-				name: this.enteredTask,
-				done: false,
-				id: Math.random().toString(16).slice(2),
-			};
-			this.enteredTask = '';
-			this.tasks.push(task);
+			if (this.usrInput.length > 0) this.tasks.push(this.usrInput);
+			this.usrInput='';
 		},
-		toggleDone(id) {
-			const clickedTask = this.tasks.find((obj) => obj.id === id);
-			clickedTask.done = !clickedTask.done;
-		},
-		toggleListVisibility() {
-			this.listVisible = !this.listVisible;
-		},
-	},
-	computed: {
-		btnVisibilityCaption() {
-			if (this.listVisible) {
-				return 'Hide list 👻';
-			} else {
-				return 'Show list 🥝';
-			}
-		},
-	},
-});
-
-const vm = app.mount('#assignment');
+		handleShowButton() {
+			this.listVisibility = !this.listVisibility;
+		}
+	}
+	})
+app.mount('#assignment')

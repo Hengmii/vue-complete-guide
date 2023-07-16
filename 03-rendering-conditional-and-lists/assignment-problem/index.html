@@ -20,23 +20,16 @@
 			<h2>Assignment</h2>
 			<!-- 1) Add code to manage a list of tasks in a Vue app -->
 			<!-- When clicking "Add Task" a new task with the entered text should be added -->
-			<input type="text" v-model="enteredTask" @keydown.enter="addTask" />
+			<input type="text" v-model="usrInput"/>
 			<button @click="addTask">Add Task</button> <br>
-			<ul v-show="listVisible">
+			<ul v-for="task in tasks" :key="task" v-if="listVisibility">
 				<!-- 2) Output the list of tasks here -->
-				<li
-					v-for="task in tasks"
-					:key="task.id"
-					@click="toggleDone(task.id)"
-					:class="{crossed: task.done}"
-				>
-					{{ task.name }}
-				</li>
+				<li>{{ task }}</li>
 			</ul>
 			<!-- 3) When the below button is pressed, the list should be shown or hidden -->
 			<!-- BONUS: Also update the button caption -->
-			<button v-show="tasks.length > 0" @click="toggleListVisibility">
-				{{ btnVisibilityCaption }}
+			<button @click="handleShowButton">
+				{{ buttonCaption }}
 			</button>
 		</section>
 	</body>
